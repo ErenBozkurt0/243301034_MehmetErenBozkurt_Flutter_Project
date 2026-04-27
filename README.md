@@ -1,17 +1,17 @@
-# erzak_bagis_app
+# Erzak Bağış Uygulaması
 
-A new Flutter project.
+**Öğrenci Adı Soyadı:** Mehmet Eren Bozkurt
+**Öğrenci Numarası:** 243301034
 
-## Getting Started
+## Kullanılan Paketler
+- supabase_flutter
+- 
 
-This project is a starting point for a Flutter application.
+## Test Hesapları (Roller)
+| Rol | E-Posta | Şifre |
+| :--- | :--- | :--- |
+| Admin | admin@test.com | 123456 |
+| Normal Üye | user@test.com | 123456 |
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Ekran Görüntüleri
+*(Proje tamamlandığında en az 3 ekran görüntüsü buraya eklenecektir)*
