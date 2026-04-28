@@ -5,7 +5,7 @@
 
 ## Kullanılan Paketler
 - supabase_flutter
-- 
+-   
 
 ## Test Hesapları (Roller)
 | Rol | E-Posta | Şifre |

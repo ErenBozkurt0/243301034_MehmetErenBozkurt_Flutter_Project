@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'register_screen.dart'; // Kayıt ekranını dahil ettik
+import 'register_screen.dart'; 
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       
       if (mounted) {
-        // Şimdilik sadece mesaj veriyoruz, ana sayfayı yapınca oraya yönlendireceğiz
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Giriş Başarılı!')),
         );
@@ -66,7 +65,6 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 12),
             TextButton(
               onPressed: () {
-                // Kayıt ol ekranına geçiş yap
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const RegisterScreen()),

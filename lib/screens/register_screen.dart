@@ -16,24 +16,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> _kayitOl() async {
     setState(() => _isLoading = true);
     try {
-      // 1. Supabase Auth ile kullanıcıyı oluşturuyoruz
       final AuthResponse res = await Supabase.instance.client.auth.signUp(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
 
-      // 2. Kullanıcı başarıyla oluştuysa, rollerin tutulduğu profiles tablosuna ekliyoruz
+
       if (res.user != null) {
         await Supabase.instance.client.from('profiles').insert({
           'id': res.user!.id,
-          'role': 'user', // Kurallara göre roller var, varsayılan rol user
+          'role': 'user', 
         });
         
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Kayıt başarılı! Giriş yapabilirsiniz.')),
           );
-          Navigator.pop(context); // İşlem bitince giriş ekranına geri yolla
+          Navigator.pop(context); 
         }
       }
     } catch (e) {
@@ -61,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(height: 16),
             TextField(
               controller: _passwordController,
-              obscureText: true, // Şifreyi gizle
+              obscureText: true, 
               decoration: const InputDecoration(labelText: 'Şifre (En az 6 karakter)'),
             ),
             const SizedBox(height: 24),

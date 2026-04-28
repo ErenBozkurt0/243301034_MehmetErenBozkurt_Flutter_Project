@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'screens/login_screen.dart'; // Eklediğimiz ekranı tanıttık
+import 'screens/login_screen.dart'; 
 import 'screens/auth_gate.dart';
 
 void main() async {
@@ -25,7 +25,7 @@ class ErzakBagisApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const AuthGate(), // Artık uygulama ilk olarak kapıdaki güvenliğe (AuthGate) soracak
+      home: const AuthGate(),
     );
   }
 }
