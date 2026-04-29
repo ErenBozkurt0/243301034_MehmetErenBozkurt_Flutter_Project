@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'utils.dart'; // Log fonksiyonumuzu kullanabilmek için ekledik
 
 class AddDonationScreen extends StatefulWidget {
   const AddDonationScreen({super.key});
@@ -25,19 +26,26 @@ class _AddDonationScreenState extends State<AddDonationScreen> {
     setState(() => _isLoading = true);
 
     try {
+      // 1. O an giriş yapmış olan kullanıcının ID'sini alıyoruz
       final userId = Supabase.instance.client.auth.currentUser!.id;
+      final baslik = _titleController.text.trim(); // Başlığı değişkene aldık ki logda kullanalım
 
+      // 2. Veritabanındaki 'donations' tablosuna veriyi gönderiyoruz
       await Supabase.instance.client.from('donations').insert({
         'user_id': userId,
-        'title': _titleController.text.trim(),
+        'title': baslik,
         'description': _descController.text.trim(),
       });
+
+      // ---- YENİ EKLENEN LOG KISMI ----
+      await logIslemi('EKLEME', '$baslik adlı bağış eklendi.');
+      // ---------------------------------
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Bağış başarıyla eklendi! Harikasın.')),
         );
-        Navigator.pop(context);
+        Navigator.pop(context); // İşlem bitince otomatik olarak önceki sayfaya dön
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
