@@ -34,22 +34,29 @@ class UserHomeScreen extends StatelessWidget {
           }
           final donations = snapshot.data!;
           if (donations.isEmpty) {
-            return const Center(child: Text('Henüz bağış yapmadınız.'));
+            return const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.volunteer_activism, size: 64, color: Colors.grey),
+                  SizedBox(height: 16),
+                  Text('Henüz bağış yapmadınız.', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                ],
+              ),
+            );
           }
           return ListView.builder(
             itemCount: donations.length,
             itemBuilder: (context, index) {
               final item = donations[index];
-              // ... ListView.builder içindeki itemBuilder kısmı:
               return ListTile(
                 leading: const Icon(Icons.inventory_2, color: Colors.green),
                 title: Text(item['title']),
                 subtitle: Text(item['description'] ?? ''),
                 trailing: const Icon(
                   Icons.chevron_right,
-                ), // Sağa ok işareti ekleyelim
+                ), 
                 onTap: () {
-                  // Tıklandığında detay sayfasına gönderiyoruz
                   Navigator.push(
                     context,
                     MaterialPageRoute(
