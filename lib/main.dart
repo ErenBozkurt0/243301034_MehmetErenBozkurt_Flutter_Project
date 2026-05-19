@@ -21,7 +21,7 @@ class ErzakBagisApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Erzak Bağış',
+      title: 'Erzak Bagis Sistemi',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
